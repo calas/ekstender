@@ -308,6 +308,8 @@ clusterautoscaler() {
   if [[ $CLUSTER_VERSION = 1.15 ]]; then CA_IMAGE="us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.15.6"; fi >> "${LOG_OUTPUT}" 2>&1
   if [[ $CLUSTER_VERSION = 1.16 ]]; then CA_IMAGE="us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.16.5"; fi >> "${LOG_OUTPUT}" 2>&1
   if [[ $CLUSTER_VERSION = 1.17 ]]; then CA_IMAGE="us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.17.3"; fi >> "${LOG_OUTPUT}" 2>&1
+  if [[ $CLUSTER_VERSION = 1.18 ]]; then CA_IMAGE="us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.18.3"; fi >> "${LOG_OUTPUT}" 2>&1
+  if [[ $CLUSTER_VERSION = 1.19 ]]; then CA_IMAGE="us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.19.1"; fi >> "${LOG_OUTPUT}" 2>&1
   template=`cat "./configurations/cluster_autoscaler.yaml" | sed -e "s/<YOUR CLUSTER NAME>/$CLUSTER_NAME/g" -e "s*<CA IMAGE>*$CA_IMAGE*g"` >> "${LOG_OUTPUT}" 2>&1
   errorcheck ${FUNCNAME}
   echo "$template" | kubectl apply -f - >> "${LOG_OUTPUT}" 2>&1
