@@ -187,7 +187,7 @@ calico() {
   banner "Calico"
   logger "green" "Calico setup is starting..."
   # source: https://docs.aws.amazon.com/eks/latest/userguide/calico.html
-  template=`curl -sS https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/release-1.6/config/v1.6/calico.yaml` >> "${LOG_OUTPUT}" 2>&1
+  template=`curl -sS https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/release-1.7/config/v1.7/calico.yaml` >> "${LOG_OUTPUT}" 2>&1
   errorcheck ${FUNCNAME}
   echo "$template" | kubectl apply -f - >> "${LOG_OUTPUT}" 2>&1
   errorcheck ${FUNCNAME}
