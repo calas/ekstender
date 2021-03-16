@@ -172,7 +172,7 @@ iam_oidc_provider() {
 helmrepos() {
   banner "Helm repos"
   logger "green" "Importing required Helm repos..."
-  helm repo add stable https://kubernetes-charts.storage.googleapis.com/ >> "${LOG_OUTPUT}" 2>&1
+  helm repo add stable https://charts.helm.sh/stable >> "${LOG_OUTPUT}" 2>&1
   errorcheck ${FUNCNAME}
   helm repo add eks https://aws.github.io/eks-charts >> "${LOG_OUTPUT}" 2>&1
   errorcheck ${FUNCNAME}
